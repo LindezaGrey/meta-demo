@@ -32,7 +32,8 @@ WA.onInit().then(() => {
     })
 
     WA.room.area.onEnter('keycode').subscribe(() => {
-        currentPopup = WA.ui.openPopup("keycodePopup", "Der Code für die Tür lautet: 12345", [{label: "OK", className: "primary", callback: (popup) => {popup.close();}}]);
+        const code = WA.state.loadVariable('doorCode')
+        currentPopup = WA.ui.openPopup("keycodePopup", `Der Code für die Tür lautet: ${code}`, [{label: "OK", className: "primary", callback: (popup) => {popup.close();}}]);
     })
 
 
