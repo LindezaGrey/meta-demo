@@ -40,37 +40,37 @@ WA.onInit()
             console.info("Notification Webhook inactive");
           }
         });
-      // addFeebackButton();
-
-      WA.room.area.onEnter("clock").subscribe(() => {
-        const today = new Date();
-        const time = today.getHours() + ":" + today.getMinutes();
-        currentPopup = WA.ui.openPopup("clockPopup", "It's " + time, []);
-      });
-
-      WA.room.area.onEnter("keycode").subscribe(() => {
-        const code = WA.state.loadVariable("doorCode");
-        currentPopup = WA.ui.openPopup(
-          "keycodePopup",
-          `Der Code für die Tür lautet: ${code}`,
-          [{ label: "OK", className: "primary", callback: () => {} }]
-        );
-      });
-
-      WA.room.area.onLeave("clock").subscribe(closePopup);
-      WA.room.area.onLeave("keycode").subscribe(closePopup);
-
-      // day night cycle
-      WA.state.onVariableChange("dayNightCycle").subscribe((newValue) => {
-        console.log("dayNightCycle changed to", newValue);
-        if (newValue === "night") {
-          WA.room.showLayer("Night");
-        }
-        if (newValue === "day") {
-          WA.room.hideLayer("Night");
-        }
-      });
     }
+    // addFeebackButton();
+
+    WA.room.area.onEnter("clock").subscribe(() => {
+      const today = new Date();
+      const time = today.getHours() + ":" + today.getMinutes();
+      currentPopup = WA.ui.openPopup("clockPopup", "It's " + time, []);
+    });
+
+    WA.room.area.onEnter("keycode").subscribe(() => {
+      const code = WA.state.loadVariable("doorCode");
+      currentPopup = WA.ui.openPopup(
+        "keycodePopup",
+        `Der Code für die Tür lautet: ${code}`,
+        [{ label: "OK", className: "primary", callback: () => {} }]
+      );
+    });
+
+    WA.room.area.onLeave("clock").subscribe(closePopup);
+    WA.room.area.onLeave("keycode").subscribe(closePopup);
+
+    // day night cycle
+    WA.state.onVariableChange("dayNightCycle").subscribe((newValue) => {
+      console.log("dayNightCycle changed to", newValue);
+      if (newValue === "night") {
+        WA.room.showLayer("Night");
+      }
+      if (newValue === "day") {
+        WA.room.hideLayer("Night");
+      }
+    });
   })
   .catch((e) => console.error(e));
 
