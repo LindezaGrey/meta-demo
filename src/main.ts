@@ -54,6 +54,34 @@ WA.onInit()
           WA.room.hideLayer('Night');
         }
       });
+
+      // tab or website
+      const variableToWatch = [
+        {
+          variable: 'cabinetOpenMode',
+          url: 'cabineturl',
+          layer: 'cabineturlzone'
+        },
+        {
+          variable: 'whiteboardOpenMode',
+          url: 'whiteboardurl',
+          layer: 'whiteboardurlzone'
+        }
+      ];
+
+      variableToWatch.forEach((element) => {
+        WA.state.onVariableChange(element.variable).subscribe((newValue) => {
+          const url = WA.state.loadVariable(element.url) as string;
+          if (newValue === 'openWebsite') {
+            WA.room.setProperty(element.layer, 'openTab', undefined);
+            WA.room.setProperty(element.layer, 'openWebsite', url);
+          }
+          if (newValue === 'openTab') {
+            WA.room.setProperty(element.layer, 'openWebsite', undefined);
+            WA.room.setProperty(element.layer, 'openTab', url);
+          }
+        });
+      });
     });
   })
   .catch((e) => console.error(e));

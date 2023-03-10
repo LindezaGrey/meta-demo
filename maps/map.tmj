@@ -144,7 +144,7 @@
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":25,
          "id":52,
-         "name":"wekan",
+         "name":"whiteboardurlzone",
          "opacity":1,
          "properties":[
                 {
@@ -238,11 +238,11 @@
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":25,
          "id":57,
-         "name":"nextcloud",
+         "name":"cabineturlzone",
          "opacity":1,
          "properties":[
                 {
-                 "name":"openTab",
+                 "name":"openWebsite",
                  "type":"string",
                  "value":"{{{ cabineturl }}}"
                 }, 
@@ -749,371 +749,451 @@
          "y":0
         }, 
         {
-         "draworder":"topdown",
-         "id":51,
-         "name":"configuration",
-         "objects":[
+         "id":65,
+         "layers":[
                 {
-                 "class":"variable",
-                 "height":17,
-                 "id":24,
-                 "name":"wekanurl",
-                 "properties":[
+                 "draworder":"topdown",
+                 "id":51,
+                 "name":"other",
+                 "objects":[
                         {
-                         "name":"default",
-                         "type":"string",
-                         "value":"https:\/\/www.google.de"
+                         "class":"variable",
+                         "height":0,
+                         "id":27,
+                         "name":"doorOpen",
+                         "point":true,
+                         "properties":[
+                                {
+                                 "name":"closeLayer",
+                                 "type":"string",
+                                 "value":"closedDoor"
+                                }, 
+                                {
+                                 "name":"default",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"door",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"openLayer",
+                                 "type":"string",
+                                 "value":"openDoor"
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"readableBy",
+                                 "type":"string",
+                                 "value":""
+                                }, 
+                                {
+                                 "name":"writeableBy",
+                                 "type":"string",
+                                 "value":""
+                                }],
+                         "rotation":0,
+                         "visible":true,
+                         "width":0,
+                         "x":192.666666666667,
+                         "y":451.333333333333
                         }, 
                         {
-                         "name":"description",
-                         "type":"string",
-                         "value":"Url to the digital whiteboard in  the upper right corner"
+                         "class":"variable",
+                         "height":0,
+                         "id":36,
+                         "name":"doorCode",
+                         "point":true,
+                         "properties":[
+                                {
+                                 "name":"default",
+                                 "type":"string",
+                                 "value":"12345"
+                                }, 
+                                {
+                                 "name":"description",
+                                 "type":"string",
+                                 "value":"Door Code"
+                                }, 
+                                {
+                                 "name":"label",
+                                 "type":"string",
+                                 "value":"Door Code"
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"writableBy",
+                                 "type":"string",
+                                 "value":"editor"
+                                }],
+                         "rotation":0,
+                         "visible":true,
+                         "width":0,
+                         "x":268,
+                         "y":439
                         }, 
                         {
-                         "name":"label",
-                         "type":"string",
-                         "value":"Whiteboard-Url"
-                        }, 
-                        {
-                         "name":"persist",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"writableBy",
-                         "type":"string",
-                         "value":"editor"
+                         "class":"variable",
+                         "height":0,
+                         "id":37,
+                         "name":"dayNightCycle",
+                         "point":true,
+                         "properties":[
+                                {
+                                 "name":"allowed_values",
+                                 "type":"string",
+                                 "value":"{ \"Day\": \"day\", \"Night\": \"night\" }"
+                                }, 
+                                {
+                                 "name":"default",
+                                 "type":"string",
+                                 "value":"day"
+                                }, 
+                                {
+                                 "name":"description",
+                                 "type":"string",
+                                 "value":"Which time is it?"
+                                }, 
+                                {
+                                 "name":"label",
+                                 "type":"string",
+                                 "value":"Day-night-cycle"
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"type",
+                                 "type":"string",
+                                 "value":"select"
+                                }, 
+                                {
+                                 "name":"writableBy",
+                                 "type":"string",
+                                 "value":"editor"
+                                }],
+                         "rotation":0,
+                         "visible":true,
+                         "width":0,
+                         "x":27,
+                         "y":760
                         }],
-                 "rotation":0,
+                 "opacity":1,
+                 "type":"objectgroup",
                  "visible":true,
-                 "width":16,
-                 "x":746.5,
-                 "y":46.5
+                 "x":0,
+                 "y":0
                 }, 
                 {
-                 "class":"variable",
-                 "height":17,
-                 "id":31,
-                 "name":"cabineturl",
-                 "properties":[
+                 "draworder":"topdown",
+                 "id":66,
+                 "name":"links",
+                 "objects":[
                         {
-                         "name":"default",
-                         "type":"string",
-                         "value":"https:\/\/www.google.de"
+                         "class":"variable",
+                         "height":0,
+                         "id":49,
+                         "name":"whiteboardOpenMode",
+                         "point":true,
+                         "properties":[
+                                {
+                                 "name":"allowed_values",
+                                 "type":"string",
+                                 "value":"{ \"Open in the office\": \"openWebsite\", \"Open as new Tab\": \"openTab\" }"
+                                }, 
+                                {
+                                 "name":"default",
+                                 "type":"string",
+                                 "value":"openWebsite"
+                                }, 
+                                {
+                                 "name":"description",
+                                 "type":"string",
+                                 "value":"Wheter the Whiteboard-Link opens in a new Tab or in the office"
+                                }, 
+                                {
+                                 "name":"label",
+                                 "type":"string",
+                                 "value":"Whiteboard Website-Type"
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"type",
+                                 "type":"string",
+                                 "value":"select"
+                                }, 
+                                {
+                                 "name":"writableBy",
+                                 "type":"string",
+                                 "value":"editor"
+                                }],
+                         "rotation":0,
+                         "visible":true,
+                         "width":0,
+                         "x":755,
+                         "y":109
                         }, 
                         {
-                         "name":"description",
-                         "type":"string",
-                         "value":"Url to the book-cabinet"
+                         "class":"variable",
+                         "height":17,
+                         "id":40,
+                         "name":"whiteboardurl",
+                         "properties":[
+                                {
+                                 "name":"default",
+                                 "type":"string",
+                                 "value":"https:\/\/www.google.de"
+                                }, 
+                                {
+                                 "name":"description",
+                                 "type":"string",
+                                 "value":"Url to the digital whiteboard in  the upper right corner"
+                                }, 
+                                {
+                                 "name":"label",
+                                 "type":"string",
+                                 "value":"Whiteboard-Url"
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"writableBy",
+                                 "type":"string",
+                                 "value":"editor"
+                                }],
+                         "rotation":0,
+                         "visible":true,
+                         "width":16,
+                         "x":746.5,
+                         "y":46.5
                         }, 
                         {
-                         "name":"label",
-                         "type":"string",
-                         "value":"Cabinet-Url"
+                         "class":"variable",
+                         "height":0,
+                         "id":41,
+                         "name":"cabinetOpenMode",
+                         "point":true,
+                         "properties":[
+                                {
+                                 "name":"allowed_values",
+                                 "type":"string",
+                                 "value":"{ \"Open in the office\": \"openWebsite\", \"Open as new Tab\": \"openTab\" }"
+                                }, 
+                                {
+                                 "name":"default",
+                                 "type":"string",
+                                 "value":"openWebsite"
+                                }, 
+                                {
+                                 "name":"description",
+                                 "type":"string",
+                                 "value":"Wheter the Cabinet-Link opens in a new Tab or in the office"
+                                }, 
+                                {
+                                 "name":"label",
+                                 "type":"string",
+                                 "value":"Cabinet Website-Type"
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"type",
+                                 "type":"string",
+                                 "value":"select"
+                                }, 
+                                {
+                                 "name":"writableBy",
+                                 "type":"string",
+                                 "value":"editor"
+                                }],
+                         "rotation":0,
+                         "visible":true,
+                         "width":0,
+                         "x":340,
+                         "y":113
                         }, 
                         {
-                         "name":"persist",
-                         "type":"bool",
-                         "value":true
+                         "class":"variable",
+                         "height":17,
+                         "id":42,
+                         "name":"cabineturl",
+                         "properties":[
+                                {
+                                 "name":"default",
+                                 "type":"string",
+                                 "value":"https:\/\/www.google.de"
+                                }, 
+                                {
+                                 "name":"description",
+                                 "type":"string",
+                                 "value":"Url to the book-cabinet"
+                                }, 
+                                {
+                                 "name":"label",
+                                 "type":"string",
+                                 "value":"Cabinet-Url"
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"writableBy",
+                                 "type":"string",
+                                 "value":"editor"
+                                }],
+                         "rotation":0,
+                         "visible":true,
+                         "width":16,
+                         "x":325.833333333333,
+                         "y":43.8333333333333
                         }, 
                         {
-                         "name":"writableBy",
-                         "type":"string",
-                         "value":"editor"
+                         "class":"variable",
+                         "height":0,
+                         "id":44,
+                         "name":"musicUrl",
+                         "point":true,
+                         "properties":[
+                                {
+                                 "name":"default",
+                                 "type":"string",
+                                 "value":"https:\/\/ice6.somafm.com\/groovesalad-256-mp3"
+                                }, 
+                                {
+                                 "name":"description",
+                                 "type":"string",
+                                 "value":"URL to an mp3 or mp3 stream"
+                                }, 
+                                {
+                                 "name":"label",
+                                 "type":"string",
+                                 "value":"music-url"
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"writableBy",
+                                 "type":"string",
+                                 "value":"editor"
+                                }],
+                         "rotation":0,
+                         "visible":true,
+                         "width":0,
+                         "x":208.666666666667,
+                         "y":84.6666666666667
+                        }, 
+                        {
+                         "class":"variable",
+                         "height":0,
+                         "id":45,
+                         "name":"exitUrl",
+                         "point":true,
+                         "properties":[
+                                {
+                                 "name":"default",
+                                 "type":"string",
+                                 "value":""
+                                }, 
+                                {
+                                 "name":"description",
+                                 "type":"string",
+                                 "value":"Relative exit url like \"\/@\/demo\/demo\""
+                                }, 
+                                {
+                                 "name":"label",
+                                 "type":"string",
+                                 "value":"exit url"
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"writableBy",
+                                 "type":"string",
+                                 "value":"editor"
+                                }],
+                         "rotation":0,
+                         "visible":true,
+                         "width":0,
+                         "x":679.333333333333,
+                         "y":55.3333333333333
+                        }, 
+                        {
+                         "class":"variable",
+                         "height":0,
+                         "id":48,
+                         "name":"notificationWebhookUrl",
+                         "point":true,
+                         "properties":[
+                                {
+                                 "name":"default",
+                                 "type":"string",
+                                 "value":""
+                                }, 
+                                {
+                                 "name":"description",
+                                 "type":"string",
+                                 "value":"When a user joins, a flow will be started"
+                                }, 
+                                {
+                                 "name":"label",
+                                 "type":"string",
+                                 "value":"Notification WebhookUrl"
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"writableBy",
+                                 "type":"string",
+                                 "value":"editor"
+                                }],
+                         "rotation":0,
+                         "visible":true,
+                         "width":0,
+                         "x":105,
+                         "y":781
                         }],
-                 "rotation":0,
+                 "opacity":1,
+                 "type":"objectgroup",
                  "visible":true,
-                 "width":16,
-                 "x":325.833333333333,
-                 "y":43.8333333333333
-                }, 
-                {
-                 "class":"variable",
-                 "height":17,
-                 "id":34,
-                 "name":"cabineturl",
-                 "properties":[
-                        {
-                         "name":"default",
-                         "type":"string",
-                         "value":"https:\/\/www.google.de"
-                        }, 
-                        {
-                         "name":"description",
-                         "type":"string",
-                         "value":"Url to the book-cabinet"
-                        }, 
-                        {
-                         "name":"label",
-                         "type":"string",
-                         "value":"Cabinet-Url"
-                        }, 
-                        {
-                         "name":"persist",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"writableBy",
-                         "type":"string",
-                         "value":"editor"
-                        }],
-                 "rotation":0,
-                 "visible":true,
-                 "width":16,
-                 "x":325.833333333333,
-                 "y":43.8333333333333
-                }, 
-                {
-                 "class":"variable",
-                 "height":0,
-                 "id":27,
-                 "name":"doorOpen",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"closeLayer",
-                         "type":"string",
-                         "value":"closedDoor"
-                        }, 
-                        {
-                         "name":"default",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"door",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"openLayer",
-                         "type":"string",
-                         "value":"openDoor"
-                        }, 
-                        {
-                         "name":"persist",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"readableBy",
-                         "type":"string",
-                         "value":""
-                        }, 
-                        {
-                         "name":"writeableBy",
-                         "type":"string",
-                         "value":""
-                        }],
-                 "rotation":0,
-                 "visible":true,
-                 "width":0,
-                 "x":192.666666666667,
-                 "y":451.333333333333
-                }, 
-                {
-                 "class":"variable",
-                 "height":0,
-                 "id":32,
-                 "name":"musicUrl",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"default",
-                         "type":"string",
-                         "value":"https:\/\/ice6.somafm.com\/groovesalad-256-mp3"
-                        }, 
-                        {
-                         "name":"description",
-                         "type":"string",
-                         "value":"URL to an mp3 or mp3 stream"
-                        }, 
-                        {
-                         "name":"label",
-                         "type":"string",
-                         "value":"music-url"
-                        }, 
-                        {
-                         "name":"persist",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"writableBy",
-                         "type":"string",
-                         "value":"editor"
-                        }],
-                 "rotation":0,
-                 "visible":true,
-                 "width":0,
-                 "x":208.666666666667,
-                 "y":84.6666666666667
-                }, 
-                {
-                 "class":"variable",
-                 "height":0,
-                 "id":35,
-                 "name":"exitUrl",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"default",
-                         "type":"string",
-                         "value":""
-                        }, 
-                        {
-                         "name":"description",
-                         "type":"string",
-                         "value":"Relative exit url like \"\/@\/demo\/demo\""
-                        }, 
-                        {
-                         "name":"label",
-                         "type":"string",
-                         "value":"exit url"
-                        }, 
-                        {
-                         "name":"persist",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"writableBy",
-                         "type":"string",
-                         "value":"editor"
-                        }],
-                 "rotation":0,
-                 "visible":true,
-                 "width":0,
-                 "x":679.333333333333,
-                 "y":55.3333333333333
-                }, 
-                {
-                 "class":"variable",
-                 "height":0,
-                 "id":36,
-                 "name":"doorCode",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"default",
-                         "type":"string",
-                         "value":"12345"
-                        }, 
-                        {
-                         "name":"description",
-                         "type":"string",
-                         "value":"Door Code"
-                        }, 
-                        {
-                         "name":"label",
-                         "type":"string",
-                         "value":"Door Code"
-                        }, 
-                        {
-                         "name":"persist",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"writableBy",
-                         "type":"string",
-                         "value":"editor"
-                        }],
-                 "rotation":0,
-                 "visible":true,
-                 "width":0,
-                 "x":268,
-                 "y":439
-                }, 
-                {
-                 "class":"variable",
-                 "height":0,
-                 "id":37,
-                 "name":"dayNightCycle",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"allowed_values",
-                         "type":"string",
-                         "value":"{ \"Day\": \"day\", \"Night\": \"night\" }"
-                        }, 
-                        {
-                         "name":"default",
-                         "type":"string",
-                         "value":"day"
-                        }, 
-                        {
-                         "name":"description",
-                         "type":"string",
-                         "value":"Which time is it?"
-                        }, 
-                        {
-                         "name":"label",
-                         "type":"string",
-                         "value":"Day-night-cycle"
-                        }, 
-                        {
-                         "name":"persist",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"select"
-                        }, 
-                        {
-                         "name":"writableBy",
-                         "type":"string",
-                         "value":"editor"
-                        }],
-                 "rotation":0,
-                 "visible":true,
-                 "width":0,
-                 "x":27,
-                 "y":760
-                }, 
-                {
-                 "class":"variable",
-                 "height":0,
-                 "id":38,
-                 "name":"notificationWebhookUrl",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"default",
-                         "type":"string",
-                         "value":""
-                        }, 
-                        {
-                         "name":"description",
-                         "type":"string",
-                         "value":"When a user joins, a flow will be started"
-                        }, 
-                        {
-                         "name":"label",
-                         "type":"string",
-                         "value":"Notification WebhookUrl"
-                        }, 
-                        {
-                         "name":"persist",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"writableBy",
-                         "type":"string",
-                         "value":"editor"
-                        }],
-                 "rotation":0,
-                 "visible":true,
-                 "width":0,
-                 "x":105,
-                 "y":781
+                 "x":0,
+                 "y":0
                 }],
+         "name":"configuration",
          "opacity":1,
-         "type":"objectgroup",
+         "type":"group",
          "visible":true,
          "x":0,
          "y":0
@@ -1226,8 +1306,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":65,
- "nextobjectid":39,
+ "nextlayerid":67,
+ "nextobjectid":50,
  "orientation":"orthogonal",
  "properties":[
         {
