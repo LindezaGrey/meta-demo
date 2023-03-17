@@ -12,6 +12,20 @@ WA.onInit()
   .then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player.tags);
+    console.table(WA.metadata);
+
+    // WA.ui.modal.openModal(
+    //   {
+    //     title: 'WorkAdventure website',
+    //     src: 'https://workadventu.re',
+    //     allow: 'fullscreen',
+    //     allowApi: true,
+    //     position: 'center'
+    //   },
+    //   () => {
+    //     console.info('The modal was closed');
+    //   }
+    // );
 
     bootstrapExtra().then(() => {
       console.log('Extra API ready');
@@ -37,7 +51,15 @@ WA.onInit()
         currentPopup = WA.ui.openPopup(
           'keycodePopup',
           `Der Code für die Tür lautet: ${code}`,
-          [{ label: 'OK', className: 'primary', callback: () => {} }]
+          [
+            {
+              label: 'OK',
+              className: 'primary',
+              callback: (popup) => {
+                popup.close();
+              }
+            }
+          ]
         );
       });
 
