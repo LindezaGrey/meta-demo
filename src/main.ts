@@ -31,7 +31,6 @@ WA.onInit()
       console.log('Extra API ready');
 
       WA.room.onEnterLayer('Webhooks/workplaces').subscribe(() => {
-        console.log('Player entered workplace');
         const notificationActive =
           (WA.state.loadVariable('notificationWebhookUrl') as string).length >
           0;
@@ -61,6 +60,14 @@ WA.onInit()
             }
           ]
         );
+      });
+
+      WA.room.area.onEnter('meetingRoomDetection').subscribe(() => {
+        console.log('Player entered MeetingRoom');
+        WA.room.hideLayer('MeetingRoom');
+      });
+      WA.room.area.onLeave('meetingRoomDetection').subscribe(() => {
+        WA.room.showLayer('MeetingRoom');
       });
 
       WA.room.area.onLeave('clock').subscribe(closePopup);
