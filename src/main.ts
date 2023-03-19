@@ -1,11 +1,11 @@
-/// <reference types="@workadventure/iframe-api-typings" />
-
+import { Popup } from '@workadventure/iframe-api-typings';
 import { bootstrapExtra } from '@workadventure/scripting-api-extra';
 import axios from 'axios';
+import { startChallenge } from './challenge';
 
 console.log('Script started successfully');
 
-let currentPopup: any = undefined;
+let currentPopup: Popup | undefined = undefined;
 
 // Waiting for the API to be ready
 WA.onInit()
@@ -29,6 +29,16 @@ WA.onInit()
 
     bootstrapExtra().then(() => {
       console.log('Extra API ready');
+      console.log(WA.room);
+
+      WA.ui.actionBar.addButton({
+        id: 'challenge-btn',
+        label: 'Start Challenge',
+        callback: async (event) => {
+          console.log('Button clicked', event);
+          await startChallenge();
+        }
+      });
 
       WA.room.onEnterLayer('Webhooks/workplaces').subscribe(() => {
         const notificationActive =
