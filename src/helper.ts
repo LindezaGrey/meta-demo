@@ -1,11 +1,14 @@
 import { ButtonDescriptor, Popup } from '@workadventure/iframe-api-typings';
 
-interface IPopupArea {
-  name: string;
+interface IBasicCoordinates {
   x: number;
   y: number;
   width: number;
   height: number;
+}
+
+interface IPopupArea extends IBasicCoordinates {
+  name: string;
   message: string;
   buttons?: ButtonDescriptor[];
 }
@@ -66,4 +69,31 @@ async function createPopup(popup: IPopupArea) {
   activePopup = WA.ui.openPopup(saveAreaId, popup.message, buttons);
 }
 
-export { createPopup };
+async function createBranding(
+  coords: IBasicCoordinates,
+  WAvariable: string,
+  iframeName: string
+) {
+  const brandingWallUrl = WA.state.loadVariable(WAvariable) as string;
+
+  const brandingWall = WA.room.website.create({
+    name: `${iframeName}-iframe`,
+    url: brandingWallUrl,
+    position: {
+      x: coords.x,
+      y: coords.y,
+      width: coords.width,
+      height: coords.height
+    },
+    visible: true,
+    allowApi: false,
+    allow: '',
+    origin: 'map',
+    scale: 1
+  });
+  WA.state.onVariableChange(WAvariable).subscribe((newValue) => {
+    brandingWall.url = newValue as string;
+  });
+}
+
+export { createPopup, createBranding };
