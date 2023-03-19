@@ -18,6 +18,7 @@ async function startChallenge() {
           WA.player.setOutlineColor(212, 175, 55);
           await passStageOne();
           //   console.log(await WA.player.getWokaPicture());
+          // activePopup in helper.ts has to be set to null
           p.close();
         }
       }

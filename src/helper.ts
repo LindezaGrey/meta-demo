@@ -75,7 +75,9 @@ async function createBranding(
   iframeName: string
 ) {
   const brandingWallUrl = WA.state.loadVariable(WAvariable) as string;
-
+  if (brandingWallUrl.length === 0) {
+    return;
+  }
   const brandingWall = WA.room.website.create({
     name: `${iframeName}-iframe`,
     url: brandingWallUrl,
@@ -91,8 +93,14 @@ async function createBranding(
     origin: 'map',
     scale: 1
   });
+
   WA.state.onVariableChange(WAvariable).subscribe((newValue) => {
+    if ((newValue as string).length == 0) {
+      brandingWall.visible = false;
+      return;
+    }
     brandingWall.url = newValue as string;
+    brandingWall.visible = true;
   });
 }
 
