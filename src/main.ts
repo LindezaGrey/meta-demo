@@ -122,7 +122,7 @@ async function init() {
     );
     await createBranding(
       { x: 1024, y: 320, width: 160, height: 64 },
-      'brandingWallUrl',
+      'meetingWallUrl',
       'meetingRoom'
     );
     //
