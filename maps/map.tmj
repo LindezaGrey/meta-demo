@@ -860,7 +860,7 @@
                                 {
                                  "name":"default",
                                  "type":"string",
-                                 "value":"\/tilesets\/metaverse-tile.png"
+                                 "value":""
                                 }, 
                                 {
                                  "name":"description",
@@ -885,8 +885,8 @@
                          "rotation":0,
                          "visible":true,
                          "width":0,
-                         "x":62.6666666666667,
-                         "y":64
+                         "x":1018,
+                         "y":348.666666666667
                         }, 
                         {
                          "class":"variable",
@@ -898,7 +898,7 @@
                                 {
                                  "name":"default",
                                  "type":"string",
-                                 "value":"\/tilesets\/metaverse-tile.png"
+                                 "value":""
                                 }, 
                                 {
                                  "name":"description",

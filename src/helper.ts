@@ -69,14 +69,45 @@ async function createPopup(popup: IPopupArea) {
   activePopup = WA.ui.openPopup(saveAreaId, popup.message, buttons);
 }
 
+async function readPngFromUrl(url: string): Promise<string> {
+  // Make an HTTP request to the PNG file's URL using fetch
+  const response = await fetch(url);
+  console.log(response);
+  // Read the file data as a binary string using FileReader
+  const blob = await response.blob();
+  const reader = new FileReader();
+  const fileDataPromise = new Promise<string>((resolve, reject) => {
+    reader.onloadend = () => {
+      const fileData = reader.result as string;
+      resolve(fileData);
+    };
+    reader.onerror = () => {
+      reject(reader.error);
+    };
+  });
+  reader.readAsBinaryString(blob);
+
+  // Encode the file data as a base64 string and return a Data URL
+  const fileData = await fileDataPromise;
+  const base64Data = btoa(fileData);
+  return `data:image/png;base64,${base64Data}`;
+}
+
 async function createBranding(
   coords: IBasicCoordinates,
   WAvariable: string,
   iframeName: string
 ) {
-  const brandingWallUrl = WA.state.loadVariable(WAvariable) as string;
+  let brandingWallUrl = WA.state.loadVariable(WAvariable) as string;
+
   if (brandingWallUrl.length === 0) {
-    return;
+    // empty pixel so thaht the iframe is still there
+    brandingWallUrl =
+      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==';
+  }
+
+  if (brandingWallUrl.startsWith('http')) {
+    brandingWallUrl = await readPngFromUrl(brandingWallUrl);
   }
   const brandingWall = WA.room.website.create({
     name: `${iframeName}-iframe`,
@@ -94,12 +125,13 @@ async function createBranding(
     scale: 1
   });
 
-  WA.state.onVariableChange(WAvariable).subscribe((newValue) => {
+  WA.state.onVariableChange(WAvariable).subscribe(async (newValue) => {
     if ((newValue as string).length == 0) {
       brandingWall.visible = false;
       return;
     }
-    brandingWall.url = newValue as string;
+
+    brandingWall.url = await readPngFromUrl(brandingWallUrl);
     brandingWall.visible = true;
   });
 }
