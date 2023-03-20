@@ -46,7 +46,6 @@ async function createPopup(popup: IPopupArea) {
     activePopup = null;
   }
   const saveAreaId = generateAreaId(popup.name);
-  console.log(seenNames);
   WA.room.area.create({
     name: saveAreaId,
     x: popup.x - popup.width / 2,
@@ -72,7 +71,6 @@ async function createPopup(popup: IPopupArea) {
 async function readPngFromUrl(url: string): Promise<string> {
   // Make an HTTP request to the PNG file's URL using fetch
   const response = await fetch(url);
-  console.log(response);
   // Read the file data as a binary string using FileReader
   const blob = await response.blob();
   const reader = new FileReader();
@@ -109,6 +107,7 @@ async function createBranding(
   if (brandingWallUrl.startsWith('http')) {
     brandingWallUrl = await readPngFromUrl(brandingWallUrl);
   }
+
   const brandingWall = WA.room.website.create({
     name: `${iframeName}-iframe`,
     url: brandingWallUrl,
@@ -127,12 +126,13 @@ async function createBranding(
 
   WA.state.onVariableChange(WAvariable).subscribe(async (newValue) => {
     if ((newValue as string).length == 0) {
-      brandingWall.visible = false;
+      brandingWallUrl =
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==';
+      brandingWall.url = brandingWallUrl;
       return;
     }
 
-    brandingWall.url = await readPngFromUrl(brandingWallUrl);
-    brandingWall.visible = true;
+    brandingWall.url = await readPngFromUrl(newValue as string);
   });
 }
 
