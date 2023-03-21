@@ -104,9 +104,9 @@ async function createBranding(
       'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==';
   }
 
-  if (brandingWallUrl.startsWith('http')) {
-    brandingWallUrl = await readPngFromUrl(brandingWallUrl);
-  }
+  // if (brandingWallUrl.startsWith('http')) {
+  //   brandingWallUrl = await readPngFromUrl(brandingWallUrl);
+  // }
 
   const brandingWall = WA.room.website.create({
     name: `${iframeName}-iframe`,
@@ -132,7 +132,7 @@ async function createBranding(
       return;
     }
 
-    brandingWall.url = await readPngFromUrl(newValue as string);
+    brandingWall.url = newValue as string;
   });
 }
 
