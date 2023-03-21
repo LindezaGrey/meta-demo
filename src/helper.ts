@@ -68,28 +68,28 @@ async function createPopup(popup: IPopupArea) {
   activePopup = WA.ui.openPopup(saveAreaId, popup.message, buttons);
 }
 
-async function readPngFromUrl(url: string): Promise<string> {
-  // Make an HTTP request to the PNG file's URL using fetch
-  const response = await fetch(url, { mode: 'no-cors' });
-  // Read the file data as a binary string using FileReader
-  const blob = await response.blob();
-  const reader = new FileReader();
-  const fileDataPromise = new Promise<string>((resolve, reject) => {
-    reader.onloadend = () => {
-      const fileData = reader.result as string;
-      resolve(fileData);
-    };
-    reader.onerror = () => {
-      reject(reader.error);
-    };
-  });
-  reader.readAsBinaryString(blob);
+// async function readPngFromUrl(url: string): Promise<string> {
+//   // Make an HTTP request to the PNG file's URL using fetch
+//   const response = await fetch(url, { mode: 'no-cors' });
+//   // Read the file data as a binary string using FileReader
+//   const blob = await response.blob();
+//   const reader = new FileReader();
+//   const fileDataPromise = new Promise<string>((resolve, reject) => {
+//     reader.onloadend = () => {
+//       const fileData = reader.result as string;
+//       resolve(fileData);
+//     };
+//     reader.onerror = () => {
+//       reject(reader.error);
+//     };
+//   });
+//   reader.readAsBinaryString(blob);
 
-  // Encode the file data as a base64 string and return a Data URL
-  const fileData = await fileDataPromise;
-  const base64Data = btoa(fileData);
-  return `data:image/png;base64,${base64Data}`;
-}
+//   // Encode the file data as a base64 string and return a Data URL
+//   const fileData = await fileDataPromise;
+//   const base64Data = btoa(fileData);
+//   return `data:image/png;base64,${base64Data}`;
+// }
 
 async function createBranding(
   coords: IBasicCoordinates,
