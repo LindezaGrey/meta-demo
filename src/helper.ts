@@ -70,7 +70,7 @@ async function createPopup(popup: IPopupArea) {
 
 async function readPngFromUrl(url: string): Promise<string> {
   // Make an HTTP request to the PNG file's URL using fetch
-  const response = await fetch(url);
+  const response = await fetch(url, { mode: 'no-cors' });
   // Read the file data as a binary string using FileReader
   const blob = await response.blob();
   const reader = new FileReader();
