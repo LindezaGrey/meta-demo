@@ -3,6 +3,7 @@ import { bootstrapExtra } from '@workadventure/scripting-api-extra';
 import axios from 'axios';
 import { startChallenge } from './challenge';
 import { createBranding } from './helper';
+import { initPresence } from './presenceIndicators';
 
 console.log('Script started successfully');
 
@@ -29,6 +30,8 @@ async function init() {
         await startChallenge();
       }
     });
+
+    await initPresence();
 
     WA.room.onEnterLayer('Webhooks/workplaces').subscribe(() => {
       const notificationActive =
