@@ -105,19 +105,15 @@ async function init() {
       }
     ];
 
-    variableToWatch.forEach((element) => {
-      WA.state.onVariableChange(element.variable).subscribe((newValue) => {
-        const url = WA.state.loadVariable(element.url) as string;
-        if (newValue === 'openWebsite') {
-          WA.room.setProperty(element.layer, 'openTab', undefined);
-          WA.room.setProperty(element.layer, 'openWebsite', url);
-        }
-        if (newValue === 'openTab') {
-          WA.room.setProperty(element.layer, 'openWebsite', undefined);
-          WA.room.setProperty(element.layer, 'openTab', url);
-        }
+    variableToWatch.forEach(async (element) => {
+      // Execute the code immediately
+      await changeWebsiteProps(element);
+      // Subscribe to variable changes and execute the code on change
+      WA.state.onVariableChange(element.variable).subscribe(async () => {
+        await changeWebsiteProps(element);
       });
     });
+
     await createBranding(
       { x: 32, y: 32, width: 192, height: 64 },
       'brandingWallUrl',
@@ -131,6 +127,25 @@ async function init() {
     //
   } catch (e) {
     console.error('Error while initializing the script', e);
+  }
+}
+
+async function changeWebsiteProps(element: {
+  variable: string;
+  url: string;
+  layer: string;
+}) {
+  const newValue = WA.state.loadVariable(element.variable) as string;
+  const url = WA.state.loadVariable(element.url) as string;
+  // const map = await WA.room.getTiledMap();
+  // console.log(map);
+  if (newValue === 'openWebsite') {
+    WA.room.setProperty(element.layer, 'openTab', undefined);
+    WA.room.setProperty(element.layer, 'openWebsite', url);
+  }
+  if (newValue === 'openTab') {
+    WA.room.setProperty(element.layer, 'openWebsite', undefined);
+    WA.room.setProperty(element.layer, 'openTab', url);
   }
 }
 
