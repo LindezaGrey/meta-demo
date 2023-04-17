@@ -962,12 +962,23 @@
                          "class":"area",
                          "height":64,
                          "id":56,
-                         "name":"testarea",
+                         "name":"wallBrandingArea",
                          "rotation":0,
                          "visible":true,
                          "width":192,
                          "x":32,
                          "y":32
+                        }, 
+                        {
+                         "class":"area",
+                         "height":64,
+                         "id":60,
+                         "name":"roomBrandingArea",
+                         "rotation":0,
+                         "visible":true,
+                         "width":160,
+                         "x":1024,
+                         "y":319
                         }],
                  "opacity":1,
                  "properties":[
@@ -1764,7 +1775,7 @@
          "y":0
         }],
  "nextlayerid":74,
- "nextobjectid":60,
+ "nextobjectid":61,
  "orientation":"orthogonal",
  "properties":[
         {

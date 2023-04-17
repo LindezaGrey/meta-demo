@@ -1,4 +1,6 @@
 import { ButtonDescriptor, Popup } from '@workadventure/iframe-api-typings';
+import { ITiledMapGroupLayer } from '@workadventure/tiled-map-type-guard/dist/ITiledMapGroupLayer';
+import { ITiledMapObjectLayer } from '@workadventure/tiled-map-type-guard/dist/ITiledMapObjectLayer';
 
 interface IBasicCoordinates {
   x: number;
@@ -92,10 +94,32 @@ async function createPopup(popup: IPopupArea) {
 // }
 
 async function createBranding(
-  coords: IBasicCoordinates,
+  areaName: string,
   WAvariable: string,
   iframeName: string
 ) {
+  // search the map for some area objects within configuration/branding to get the correct coordinates
+  const map = await WA.room.getTiledMap();
+  const configLayer = map.layers.find(
+    (layer) => layer.name === 'configuration'
+  ) as ITiledMapGroupLayer;
+
+  const brandingLayer = configLayer.layers.find(
+    (l) => l.name === 'branding'
+  ) as ITiledMapObjectLayer;
+
+  const pictureAreas = brandingLayer.objects.filter(
+    (obj) => obj.class === 'area'
+  );
+
+  const area = pictureAreas.find((obj) => obj.name === areaName);
+  const coords: IBasicCoordinates = {
+    x: area?.x || 0,
+    y: area?.y || 0,
+    width: area?.width || 0,
+    height: area?.height || 0
+  };
+
   let brandingWallUrl = WA.state.loadVariable(WAvariable) as string;
 
   if (brandingWallUrl.length === 0) {

@@ -114,17 +114,8 @@ async function init() {
       });
     });
 
-    await createBranding(
-      { x: 32, y: 32, width: 192, height: 64 },
-      'brandingWallUrl',
-      'leftUpper'
-    );
-    await createBranding(
-      { x: 1024, y: 320, width: 160, height: 64 },
-      'meetingWallUrl',
-      'meetingRoom'
-    );
-    //
+    await createBranding('wallBrandingArea', 'brandingWallUrl', 'leftUpper');
+    await createBranding('roomBrandingArea', 'meetingWallUrl', 'meetingRoom');
   } catch (e) {
     console.error('Error while initializing the script', e);
   }
