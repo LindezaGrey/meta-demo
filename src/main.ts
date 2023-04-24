@@ -102,6 +102,11 @@ async function init() {
         variable: 'infoOpenMode',
         url: 'infourl',
         layer: 'infourlzone'
+      },
+      {
+        variable: 'trainingRoomOpenMode',
+        url: 'trainingRoomUrl',
+        layer: 'yogazone'
       }
     ];
 
