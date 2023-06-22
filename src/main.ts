@@ -4,6 +4,7 @@ import axios from 'axios';
 import { startChallenge } from './challenge';
 import { createBranding } from './helper';
 import { initPresence } from './presenceIndicators';
+import { initQuitButton } from './quitButton';
 
 console.log('Script started successfully');
 
@@ -31,6 +32,7 @@ async function init() {
       }
     });
 
+    await initQuitButton();
     await initPresence();
 
     WA.room.onEnterLayer('Webhooks/workplaces').subscribe(() => {

@@ -1157,12 +1157,12 @@
                                 {
                                  "name":"allowed_values",
                                  "type":"string",
-                                 "value":"{ \"Scribble\": \"https:\/\/skribbl.io\", \"Battle Tetris\": \"https:\/\/jstris.jezevec10.com\/?join=z95nJofhsdktable0\", \"Texas Holdem\": \"https:\/\/lipoker.io\", \"Cats\": \"https:\/\/v6p9d9t4.ssl.hwcdn.net\/html\/2267583\/index.html?v=1591301667\", \"Wholesome Cats\": \"https:\/\/v6p9d9t4.ssl.hwcdn.net\/html\/1071128\/WebBuild\/index.html?v=1542781917\" }"
+                                 "value":"{\"Metahuhn\": \"https:\/\/html5.gamedistribution.com\/rvvASMiM\/8198902ff8ae4fd7a29208013eb9d072\/index.html?gd_sdk_referrer_url=https:\/\/www.jetztspielen.de\/spiel\/moorhuhn-shooter\" , \"Scribble\": \"https:\/\/skribbl.io\", \"Battle Tetris\": \"https:\/\/jstris.jezevec10.com\/?join=z95nJofhsdktable0\", \"Texas Holdem\": \"https:\/\/lipoker.io\", \"Cats\": \"https:\/\/v6p9d9t4.ssl.hwcdn.net\/html\/2267583\/index.html?v=1591301667\", \"Wholesome Cats\": \"https:\/\/v6p9d9t4.ssl.hwcdn.net\/html\/1071128\/WebBuild\/index.html?v=1542781917\" }"
                                 }, 
                                 {
                                  "name":"default",
                                  "type":"string",
-                                 "value":"https:\/\/skribbl.io"
+                                 "value":"https:\/\/html5.gamedistribution.com\/rvvASMiM\/8198902ff8ae4fd7a29208013eb9d072\/index.html?gd_sdk_referrer_url=https:\/\/www.jetztspielen.de\/spiel\/moorhuhn-shooter"
                                 }, 
                                 {
                                  "name":"description",
