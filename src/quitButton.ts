@@ -10,7 +10,9 @@ async function initQuitButton(): Promise<void> {
     callback: async () => {
       const actionMessage = WA.ui.displayActionMessage({
         message: '👉 Hier klicken um das Metaverse-Office zu verlassen',
-        callback: () => WA.nav.goToPage('javascript:window.close()'),
+        callback: () => {
+          WA.nav.goToPage('https://lindezagrey.github.io/meta-demo/close.html');
+        },
         type: 'warning'
       });
       setTimeout(() => {
