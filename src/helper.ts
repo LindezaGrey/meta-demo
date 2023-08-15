@@ -159,5 +159,15 @@ async function createBranding(
     brandingWall.url = newValue as string;
   });
 }
+// https://workadventure.github.io/scripting-api-extra/tutorialv1.html
+function openTutorial(tutorialUrl: string) {
+  WA.ui.modal.openModal({
+    title: 'Tutorial',
+    src: tutorialUrl,
+    allow: 'fullscreen; clipboard-read; clipboard-write',
+    allowApi: true,
+    position: 'right'
+  });
+}
 
-export { createPopup, createBranding };
+export { createPopup, createBranding, openTutorial };

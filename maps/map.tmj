@@ -1568,6 +1568,44 @@
                          "width":0,
                          "x":372.5,
                          "y":379
+                        }, 
+                        {
+                         "class":"variable",
+                         "height":0,
+                         "id":61,
+                         "name":"tutorialUrl",
+                         "point":true,
+                         "properties":[
+                                {
+                                 "name":"default",
+                                 "type":"string",
+                                 "value":""
+                                }, 
+                                {
+                                 "name":"description",
+                                 "type":"string",
+                                 "value":"If set, show Tutorial Button"
+                                }, 
+                                {
+                                 "name":"label",
+                                 "type":"string",
+                                 "value":"Tutorial Link"
+                                }, 
+                                {
+                                 "name":"persist",
+                                 "type":"bool",
+                                 "value":true
+                                }, 
+                                {
+                                 "name":"writableBy",
+                                 "type":"string",
+                                 "value":"editor"
+                                }],
+                         "rotation":0,
+                         "visible":true,
+                         "width":0,
+                         "x":656.5,
+                         "y":518
                         }],
                  "opacity":1,
                  "properties":[
@@ -1775,7 +1813,7 @@
          "y":0
         }],
  "nextlayerid":74,
- "nextobjectid":61,
+ "nextobjectid":62,
  "orientation":"orthogonal",
  "properties":[
         {

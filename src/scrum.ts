@@ -2,6 +2,7 @@ import { Popup } from '@workadventure/iframe-api-typings';
 import { bootstrapExtra } from '@workadventure/scripting-api-extra';
 import { initPresence } from './presenceIndicators';
 import { initQuitButton } from './quitButton';
+import { openTutorial } from './helper';
 
 console.log('Scrum-Script started successfully');
 
@@ -45,6 +46,18 @@ async function init() {
       });
       WA.room.area.onLeave(pillar.areaName).subscribe(closePopup);
     });
+
+    const tutorialUrl: string = WA.state.loadVariable('tutorialUrl') as string;
+    if (tutorialUrl && tutorialUrl.length > 0) {
+      WA.ui.actionBar.addButton({
+        id: 'tutorial-btn',
+        label: 'Tutorial',
+        callback: async (event) => {
+          console.log('Button clicked', event);
+          openTutorial(tutorialUrl);
+        }
+      });
+    }
   } catch (e) {
     console.error('Error while initializing the script', e);
   }

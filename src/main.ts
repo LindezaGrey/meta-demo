@@ -1,8 +1,7 @@
 import { Popup } from '@workadventure/iframe-api-typings';
 import { bootstrapExtra } from '@workadventure/scripting-api-extra';
 import axios from 'axios';
-import { startChallenge } from './challenge';
-import { createBranding } from './helper';
+import { createBranding, openTutorial } from './helper';
 import { initPresence } from './presenceIndicators';
 import { initQuitButton } from './quitButton';
 
@@ -23,14 +22,17 @@ async function init() {
     console.table(WA.metadata);
     console.groupEnd();
 
-    WA.ui.actionBar.addButton({
-      id: 'challenge-btn',
-      label: 'Start Challenge',
-      callback: async (event) => {
-        console.log('Button clicked', event);
-        await startChallenge();
-      }
-    });
+    const tutorialUrl: string = WA.state.loadVariable('tutorialUrl') as string;
+    if (tutorialUrl && tutorialUrl.length > 0) {
+      WA.ui.actionBar.addButton({
+        id: 'tutorial-btn',
+        label: 'Tutorial',
+        callback: async (event) => {
+          console.log('Button clicked', event);
+          openTutorial(tutorialUrl);
+        }
+      });
+    }
 
     await initQuitButton();
     await initPresence();
