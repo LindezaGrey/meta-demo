@@ -34,10 +34,10 @@ async function initStopwatch(): Promise<void> {
 
   const timeIndicator: ActionBarClassicButtonDescriptor = {
     id: 'clock-btn',
-    label: '⏱ 00:00',
-    callback: async (event) => {
-      console.log('Button clicked');
-    }
+    label: '⏱ 00:00'
+    // callback: async (event) => {
+    //   console.log('Button clicked');
+    // }
   };
 
   const currentState = await WA.state.loadVariable('stopwatch-time');
