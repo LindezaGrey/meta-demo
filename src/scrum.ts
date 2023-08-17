@@ -2,6 +2,7 @@ import { Popup } from '@workadventure/iframe-api-typings';
 import { bootstrapExtra } from '@workadventure/scripting-api-extra';
 import { initPresence } from './presenceIndicators';
 import { initQuitButton } from './quitButton';
+import { initStopwatch } from './stopwatch';
 import { openTutorial } from './helper';
 
 console.log('Scrum-Script started successfully');
@@ -23,26 +24,25 @@ async function init() {
 
     await initQuitButton();
     await initPresence();
+    await initStopwatch();
 
     const pillars = [
-      { areaName: 'pillar1Trigger', text: 'Vorstellung Basic Scrum Flow' },
-      {
-        areaName: 'pillar2Trigger',
-        text: 'Vorstellung Sprint Planning inkl. Commitments & Artefakte'
-      },
-      {
-        areaName: 'pillar3Trigger',
-        text: 'Vorstellung Daily Scrum inkl. Commitments & Artefakte'
-      },
-      { areaName: 'pillar4Trigger', text: 'Vorstellung Sprint Review' },
-      { areaName: 'pillar5Trigger', text: 'Vorstellung Sprint Retro' },
-      { areaName: 'pillar6Trigger', text: 'Zusammenfassung Scrum Flow' },
-      { areaName: 'pillar7Trigger', text: 'Vorstellung Scrum Team' }
+      { areaName: 'pillar1Trigger', textVariable: 'Room1Text' },
+      { areaName: 'pillar2Trigger', textVariable: 'Room2Text' },
+      { areaName: 'pillar3Trigger', textVariable: 'Room3Text' },
+      { areaName: 'pillar4Trigger', textVariable: 'Room4Text' },
+      { areaName: 'pillar5Trigger', textVariable: 'Room5Text' },
+      { areaName: 'pillar6Trigger', textVariable: 'Room6Text' },
+      { areaName: 'pillar7Trigger', textVariable: 'Room7Text' }
     ];
 
     pillars.forEach((pillar) => {
-      WA.room.area.onEnter(pillar.areaName).subscribe(() => {
-        currentPopup = WA.ui.openPopup(pillar.areaName, pillar.text, []);
+      WA.room.area.onEnter(pillar.areaName).subscribe(async () => {
+        currentPopup = WA.ui.openPopup(
+          pillar.areaName,
+          (await WA.state.loadVariable(pillar.textVariable)) as string,
+          []
+        );
       });
       WA.room.area.onLeave(pillar.areaName).subscribe(closePopup);
     });
